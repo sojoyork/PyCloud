@@ -6,7 +6,7 @@ import shutil
 # Home Screen
 def home_screen():
     root = tk.Tk()
-    root.title("PyWorld")
+    root.title("PyCloud")
 
     # Menu Bar
     menu_bar = tk.Menu(root)
@@ -18,9 +18,9 @@ def home_screen():
     rules_menu.add_command(label="View Rules", command=view_rules)
 
     # Home Screen Elements
-    home_label = tk.Label(root, text="Welcome to PyWorld!")
-    send_button = tk.Button(root, text="Send Your Projects", command=send_projects)
-    download_button = tk.Button(root, text="Download Projects", command=download_projects)
+    home_label = tk.Label(root, text="Welcome to PyCloud!")
+    send_button = tk.Button(root, text="Add files", command=send_projects)
+    download_button = tk.Button(root, text="Get files", command=download_projects)
 
     # Layout
     home_label.pack(pady=20)
@@ -32,14 +32,14 @@ def home_screen():
 # Send Projects
 def send_projects():
     send_window = tk.Toplevel()
-    send_window.title("Send Your Projects")
+    send_window.title("Add files")
 
     # Send Projects Elements
     file_label = tk.Label(send_window, text="Select a Python file:")
     file_entry = tk.Entry(send_window)
     browse_button = tk.Button(send_window, text="Browse", command=lambda: browse_file(file_entry))
     
-    desc_label = tk.Label(send_window, text="Project Description:")
+    desc_label = tk.Label(send_window, text="File Description (Optional but needed because there s a problem. Wait till we fix it.):")
     desc_text = tk.Text(send_window, height=5, width=40)
     
     send_button = tk.Button(send_window, text="Send", command=lambda: upload_file(file_entry.get(), desc_text.get("1.0", tk.END).strip()))
@@ -95,7 +95,7 @@ def download_projects():
         if filename.endswith(".py"):
             project_listbox.insert(tk.END, filename)
 
-    download_button = tk.Button(download_window, text="Download", command=lambda: download_file(project_listbox))
+    download_button = tk.Button(download_window, text="retrive files", command=lambda: download_file(project_listbox))
     view_desc_button = tk.Button(download_window, text="View Description", command=lambda: view_description(project_listbox))
     download_button.pack(pady=10)
     view_desc_button.pack(pady=10)
@@ -111,7 +111,7 @@ def download_file(project_listbox):
         else:
             messagebox.showerror("Error", f"File '{selected_file}' not found.")
     except tk.TclError:
-        messagebox.showerror("Error", "No file selected. Please select a file to download.")
+        messagebox.showerror("Error", "No file selected. Please select a file to get.")
 
 # View Description
 def view_description(project_listbox):
@@ -128,7 +128,7 @@ def view_description(project_listbox):
         else:
             messagebox.showerror("Error", f"Description for '{selected_file}' not found.")
     except tk.TclError:
-        messagebox.showerror("Error", "No project selected. Please select a project to view its description.")
+        messagebox.showerror("Error", "No project selected. Please select a file to view its description.")
 
 # View Rules
 def view_rules():
@@ -136,16 +136,14 @@ def view_rules():
     rules_window.title("Community Rules")
 
     rules_text = """
-    Welcome to PyWorld Community!
+    Welcome to PyCloud community!
 
-    1. Be respectful to others.
-    2. Only upload Python files that you own or have permission to share.
-    3. Include a clear and concise description of your project.
-    4. Do not upload malicious or harmful code.
-    5. Provide constructive feedback when reviewing others' projects.
-    6. NO NSFW >:(
+    rules:
+    1. No illegal files here: Do we even look like we are going to put illegal nuke codes here? AND WE SAY HERE NO TO THE GOVERMENT BECAUSE THEY MAY STORE MORE ILLEGAL STUFF THAN  CRIMINALS DO >:(
+    2. No NSFW pictures or videos or other stuff: Okay do we look like we are nnot watching you? We have a software called ContentChecker which sees all content in yur files to see if they are with us or aganst us.
+    3. No what is illegal: We don't allow anything illegal here >:) *Doom music plays*
 
-    Let's make PyWorld a great place to share and discover Python projects!
+    Let's make PyCloud the best as ever!
     """
 
     rules_label = tk.Label(rules_window, text=rules_text, justify=tk.LEFT, padx=10, pady=10)
