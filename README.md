@@ -8,4 +8,4 @@ python3 PyCloud.py
 ```
 
 If you are on windows then:
-- Read more [here](./PyCloud)
+- Install the [Installer](./PyCloud)
