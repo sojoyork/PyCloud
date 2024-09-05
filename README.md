@@ -21,3 +21,6 @@ If you are on Linux/Unix then:
 
 If you are on MacOS:
 1. I don't know about MacOS :(
+
+## Limits
+Their are some errors that limit how much you can store in PyCloud sooooooooooo just be careful!
